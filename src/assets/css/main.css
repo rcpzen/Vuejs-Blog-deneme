@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+html,body{
+    width:100%;
+    height: 100%;
+}
+body{
+    font-family: 'Ubuntu',sans-serif;
+}
+
+#add-blog,#add-blog form , #preview{
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+
+#preview{
+    margin-top: 25px;
+}
+#preview p{
+    margin-bottom: 10px;
+}
+#add-blog form input,#add-blog form textarea{
+    padding: 5px;
+    width: 100%;
+    border:1px solid gray;
+}
+#add-blog form textarea{
+    max-width: 500px;
+    min-height:150px;
+}
+#add-blog form label{
+    display: block;
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+#check-box input{
+    display: inline-block;
+    margin-right: 10px;
+}
