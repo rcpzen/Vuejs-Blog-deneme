@@ -1,10 +1,10 @@
 <template>
-  <div id="show-blogs">
-      <h1>All Blog Articles</h1>
+  <div v-theme:column="'narrow'" id="show-blogs">
+      <h1>List Blogs Titles</h1>
       <input type="text" v-model="search" placeholder="search blogs" />
       <div v-for="(blog,index) in filteredBlogs" :key="index" class="single-blog">
-          <router-link :to="'/blog/'+ blog.id"><h3>{{blog.title | to-uppercase}}</h3></router-link>
-          <article>{{blog.content | snippet}}</article>
+          <h3 v-rainbow>{{blog.title | to-uppercase}}</h3>
+          
       </div>
   </div>
 </template>
@@ -25,24 +25,15 @@ export default {
 
   },
   created(){
-      this.$http.get('https://vueblog-5e9d6.firebaseio.com/posts.json')
-      .then(function(data){return data.json();})
-      .then(function(data){
-          var blogsArray=[];
-          for (let key in data) {
-             data[key].id=key;
-             blogsArray.push(data[key]);
-             console.log(data[key]);
-              
-          }
-          this.blogs=blogsArray;
-           console.log(blogsArray);
-           })
+      this.$http.get('https://jsonplaceholder.typicode.com/posts')
+      .then(data=>{
+          this.blogs=data.body.slice(0,10);
+      })
   },
   computed:{
      
   },
-   mixins:[searchMixin]
+  mixins:[searchMixin]
 }
 </script>
 
